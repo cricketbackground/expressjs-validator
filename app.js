@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var uploadRouter = require('./routes/upload');
 var bodyParser = require('body-parser')
 
 const app = express();
@@ -20,6 +21,7 @@ app.set('view engine', 'pug');
 //Mount routers
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/upload', uploadRouter);
 
 app.listen(port, () => console.log(`Expressjs-Validator listening on port ${port}!`));
 

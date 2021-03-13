@@ -1,3 +1,23 @@
+$('#upload_excel_button_id').click(function () {
+  var file = document.getElementById("inputPostFile").files[0];
+  var formData = new FormData();
+  formData.append("orders_request", file);
+  $.ajax({
+    url: '/upload',
+    type: 'POST',
+    contentType: false,
+    processData: false,
+    data: formData,
+    success: function (response) {
+      console.log("Response from upload route", JSON.stringify(response));
+    },
+    error: function (e) {
+      console.log("Upload failed", JSON.parse(e.responseText).message);
+    }
+  });
+});
+
+
 $('#signup-btn').click(function () {
   $.ajax({
     url: '/users',
