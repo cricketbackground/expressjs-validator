@@ -6,7 +6,7 @@ const upload = multer({
   storage,
   limits: {
     fields: 1, fileSize: 10 * 1024 * 1024, files: 1, parts: 2,
-  },
+  }
 });
 const XLSX = require('xlsx');
 
